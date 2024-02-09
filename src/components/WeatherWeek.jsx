@@ -76,8 +76,8 @@ export const WeatherWeek = ({ sendCountry }) => {
       <section className="lg:mx-32  flex flex-col w-full">
         {weatherData ? (
           <div className="div-content-weather-week flex flex-col w-60vw mt-6 ">
-            {window.innerWidth > 768 ? (
-              <div className="div-degrees w-60vw flex justify-end mb-4 gap-1vw ">
+            
+              <div className="div-degrees w-60vw flex justify-end mb-4 gap-1vw mr-5 ">
                 <button
                   className="button-degrees text-center w-7 h-7 text-xs font-raleway font-semibold text-white bg-gray-800 rounded-full border-none cursor-pointer transition duration-500 hover:text-gray-900 hover:bg-white"
                   onClick={() => handleDegrees(true)}
@@ -91,11 +91,10 @@ export const WeatherWeek = ({ sendCountry }) => {
                   °F
                 </button>
               </div>
-            ) : null}
+             
             <div
-              className={`div-weather-week-info lg:flex px-1  justify-between w-60vw mb-4 sm:items-center ${
-                window.innerWidth <= 1004 ? "mx-auto" : ""
-              } p-12 md:p-0  grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-7`}
+              className={`div-weather-week-info lg:flex px-1  justify-between w-60vw mb-4 sm:items-center 
+              mx-auto p-12 md:p-0  grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-7`}
             >
               {weatherData.list.slice(0, 5).map((forecast, index) => (
                 <div
@@ -141,7 +140,7 @@ export const WeatherWeek = ({ sendCountry }) => {
               ))}
             </div>
 
-            <div className="div-Today-Highlights  sm:flex-col">
+            <div className="mx-4  sm:flex-col">
               <h2>Today’s Highlights</h2>
 
               <div className="div-tag-day-weather-info mb-4 mx:4 flex flex-col lg:flex-row w-full auto gap-2vw mt-4 ">

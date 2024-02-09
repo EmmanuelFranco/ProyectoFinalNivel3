@@ -75,7 +75,7 @@ export const Today = ({ sendSearch, sendCountry }) => {
 
   return (
     <>
-      <section className="today flex flex-col font-raleway lg:w-80 h-full lg:bg-gray-800 sm:bg-gray-800 md:bg-gray-800">
+      <section className="today flex flex-col font-raleway lg:w-80 h-full bg-gray-800">
         {weatherData ? (
           <div>
             <div className="mt-4 ml-4 flex flex-row">
@@ -112,7 +112,7 @@ export const Today = ({ sendSearch, sendCountry }) => {
                 </strong>
                 °C
               </h1>
-              <h2 className="h2-info-weather text-gray-400 mt-16 mb-7 text-2xl capitalize">
+              <h2 className="h2-info-weather text-gray-400 mt-1 mb-7 text-2xl capitalize">
                 {weatherData.weather[0].description}
               </h2>
               <div className="div-date-location-info-weather flex flex-col  items-center gap-4 mt-12">

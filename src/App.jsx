@@ -10,7 +10,7 @@ function App () {
 
   return (
     <>
-      <section className='app  md:flex-col lg:flex-row w-full max-w-[1440px] sm:flex sm:m-4'>
+      <section className='app md:flex-col lg:flex-row w-full max-w-[1440px] sm:flex'>
         {isSearching ? (
           <AddLocation sendCountry={setSelectedCountry} sendSearch={setIsSearching} />
         ) : (
