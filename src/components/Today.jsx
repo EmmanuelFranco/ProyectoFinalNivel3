@@ -18,7 +18,7 @@ export const Today = ({ sendSearch, sendCountry }) => {
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
-      console.log(data);
+      
       return data;
     } catch (error) {
       console.error("Error:", error);
@@ -75,7 +75,7 @@ export const Today = ({ sendSearch, sendCountry }) => {
 
   return (
     <>
-      <section className="today flex flex-col font-raleway w-80 h-full bg-gray-800">
+      <section className="today flex flex-col font-raleway lg:w-80 h-full lg:bg-gray-800 sm:bg-gray-800 md:bg-gray-800">
         {weatherData ? (
           <div>
             <div className="mt-4 ml-4 flex flex-row">
@@ -92,28 +92,34 @@ export const Today = ({ sendSearch, sendCountry }) => {
               </button>
             </div>
 
-            <div className="w-28 h-28 overflow-hidden border-none rounded-md mx-auto mt-16">
+            <div className=" relative w-full h-60 overflow-hidden border-none rounded-md mx-auto mt-4 flex items-center justify-center">
+            <img
+                src={`assets/Cloud-background.png`}
+                alt={'Fondo'}
+                className="absolute inset-0 w-100vw  h-full object-cover opacity-10 "
+              />
               <img
                 src={`assets/${weatherData.weather[0].icon}.png`}
                 alt={weatherData.weather[0].description}
+                className="relative z-10 w-75vw h-1/2 "
               />
             </div>
 
-            <div className="div-info-weather flex flex-col items-center mt-4">
+            <div className="div-info-weather flex flex-col items-center mt-10 mb-4">
               <h1 className="h1-info-weather text-5xl text-gray-400 font-raleway  font-semibold">
-                <strong className="strong-info-weather text-gray-300  font-semibold text-9xl">
+                <strong className="strong-info-weather text-gray-300  font-semibold text-8xl">
                   {Math.round(weatherData.main.temp)}
                 </strong>
                 °C
               </h1>
-              <h2 className="h2-info-weather text-gray-400 my-7 text-2xl capitalize">
+              <h2 className="h2-info-weather text-gray-400 mt-16 mb-7 text-2xl capitalize">
                 {weatherData.weather[0].description}
               </h2>
-              <div className="div-date-location-info-weather flex flex-col  items-center gap-4 mt-4">
+              <div className="div-date-location-info-weather flex flex-col  items-center gap-4 mt-12">
                 <p className="p1-date-location-info-weather text-gray-400 items-center font-raleway font-semibold">
                   Today • {handleDate(weatherData.dt)}
                 </p>
-                <p className="p2-date-location-info-weather  flex flex-row my-7 text-gray-400 font-raleway font-semibold">
+                <p className="p2-date-location-info-weather  flex flex-row  mb-8 text-gray-400 font-raleway font-semibold">
                   <FaLocationDot className="icon-date-location-info mx-1" />
                   {weatherData.name}
                 </p>
@@ -121,7 +127,7 @@ export const Today = ({ sendSearch, sendCountry }) => {
             </div>
           </div>
         ) : (
-          <div className="loading-today-data flex justify-center mt-60 w-full h-50 border-10 border-solid border-gray-700 border-opacity-100  rounded-full border-t-10  animate-spinner"></div>
+          <div className="loading-today-data flex justify-center  w-full h-50 border-10 border-solid border-gray-700 border-opacity-100  rounded-full border-t-10  animate-spinner"></div>
         )}
       </section>
     </>
