@@ -12,7 +12,7 @@ export const WeatherWeek = ({ sendCountry }) => {
   const weatherWeek = async () => {
     try {
       const response = await fetch(
-        `http://api.openweathermap.org/data/2.5/forecast?q=${sendCountry}&appid=${apiKey}&units=metric`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${sendCountry}&appid=${apiKey}&units=metric`
       );
       if (!response.ok) {
         throw new Error("Network response was not ok");
